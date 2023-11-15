@@ -20,6 +20,7 @@ import it.cnr.datamining.riskassessment.data.clustering.MultiKMeans;
 import it.cnr.datamining.riskassessment.data.clustering.XMeans;
 import it.cnr.datamining.riskassessment.data.interpretation.ClusterInterpreter;
 import it.cnr.datamining.riskassessment.data.interpretation.MedDataInterpreter;
+import it.cnr.datamining.riskassessment.data.interpretation.StandardDataInterpreter;
 import it.cnr.datamining.riskassessment.data.utils.Operations;
 import weka.core.Instances;
 import weka.core.converters.CSVLoader;
@@ -478,8 +479,8 @@ public class RiskAssessor {
 		String [] features2cluster2019 = {"environment 2019_land_distance","environment 2019_maximum_depth","environment 2019_mean_depth","environment 2019_minimum_depth","environment 2019_net_primary_production","environment 2019_sea-bottom_dissolved_oxygen","environment 2019_sea-bottom_salinity","environment 2019_sea-bottom_temperature","environment 2019_sea-surface_salinity","environment 2019_sea-surface_temperature","fishing activity 2019_reported_fishing","fishing activity 2019_total_fishing","fishing activity 2019_unreported_fishing","species richness 2019","stocks richness 2019"}; 
 		 
 		int minElementsInCluster = 2;
-		int minClusters = 15;
-		int maxClusters = 16;// 50; //9 is the best for multikmeans
+		int minClusters = 1;
+		int maxClusters = 20;// 50; //9 is the best for multikmeans
 		int maxIterations = 100;
 		System.out.println("Sample Arguments: \nminElementsInCluster (e.g., 2)\nminClusters (e.g., 1)\nmaxClusters (e.g., 20)\nmaxIterations (e.g., 100)\ninputFile (e.g., ./features.csv)\nfeatures2cluster (e.g., \"fishing activity 2019_unreported_fishing,species richness 2019,stocks richness 2019\")\nfeatures2project (e.g., \\\"fishing activity 2019_unreported_fishing,species richness 2019,stocks richness 2019\\\")");
 		System.out.println("Example: 2 1 20 100 \"./all_features_space_time_2017_2018_2019_2020_2021_2050.csv\" \"fishing activity 2019_unreported_fishing,species richness 2019,stocks richness 2019\" \"fishing activity 2018_unreported_fishing,species richness 2018,stocks richness 2018\"");
@@ -495,7 +496,7 @@ public class RiskAssessor {
 			inputFile = new File(args[4]);
 			features2cluster2019 = args[5].split(",");
 			
-			MedDataInterpreter interpreter = new MedDataInterpreter();
+			StandardDataInterpreter interpreter = new StandardDataInterpreter();
 			
 			RiskAssessor riskassessor = new RiskAssessor(minElementsInCluster, minClusters, maxClusters, maxIterations, interpreter);
 			
