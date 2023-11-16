@@ -1,0 +1,1 @@
+java -jar riskassessment.jar 2 1 20 100 "./all_features_space_time_2017_2018_2019_2020_2021_2050.csv" "fishing activity 2019_unreported_fishing,species richness 2019,stocks richness 2019" "fishing activity 2018_unreported_fishing,species richness 2018,stocks richness 2018"
