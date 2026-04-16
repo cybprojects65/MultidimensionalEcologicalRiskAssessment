@@ -242,8 +242,6 @@ for (k in k_values) {
   ############################
   
   # feature_quantiles <- apply(clustering_data, 2, quantile)
-  
-  # better option...
   feature_quantiles <- apply(clustering_data[, feature_names], 2, quantile)   # this does not include the distance_class column in the quantile computation
   
   centroid_labels <- matrix("M", nrow = nrow(centroids), ncol = length(feature_names),
