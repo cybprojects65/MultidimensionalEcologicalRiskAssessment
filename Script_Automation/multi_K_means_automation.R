@@ -11,7 +11,7 @@ options(warn = -1)
 args <- commandArgs(trailingOnly = TRUE)
 
 if (length(args) < 5) {
-  stop("Usage: RScript multikmeans_coords_raw_dataset.R <input_csv> <k_values> <max_iter> <coords> <features> [invert] [standardize] [time]")
+  stop("Usage: RScript multi_K_means_automation.R <input_csv> <k_values> <max_iter> <coords> <features> [invert] [standardize] [time]")
 }
 
 ############################
