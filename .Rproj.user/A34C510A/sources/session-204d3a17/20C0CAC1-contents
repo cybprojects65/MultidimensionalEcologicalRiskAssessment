@@ -1,12 +1,12 @@
 # Multidimensional Risk Assessment for Vector Data of Ecological and Environmental Parameters
 
-A framework for multidimensional ecological and environmental risk assessment based on unsupervised machine learning workflows implemented in **R** and **Java**.
+A framework for multidimensional ecological and environmental risk assessment based on unsupervised machine learning workflows (Multi K-means, X-means, and Variational Autoencoder) implemented in **R** and **Java**.
 
 This repository contains the official implementation of a workflow designed to identify ecological risk patterns, environmental anomalies, and spatial-temporal hotspots from multidimensional environmental datasets.
 
 ------------------------------------------------------------------------
 
-# Citation
+# Citations
 
 If you use this repository in scientific work, please cite the related publications and acknowledge the repository:
 
@@ -109,6 +109,7 @@ The Java implementation provides:
 The Java implementation requires:
 
 - JDK 1.8
+- The pre-cooked VAE Jar file downloadable at <https://github.com/cybprojects65/VariationalAutoencoder>
 
 This requirement is due to dependencies related to the Weka machine learning framework. ([github.com](https://github.com/cybprojects65/MultidimensionalEcologicalRiskAssessment?utm_source=chatgpt.com))
 
@@ -214,11 +215,11 @@ Examples of workflow executions:
 
 `Rscript VAE_automation.R  <input_file_path> <coord_cols> <feature_cols> <hidden_nodes>   <training_mode true/false> <output_folder> <trained_model_file> (only for model projections)`
 
-**example (training+self projection)**:
+######  **example (training+self projection)**:
 
 `RScript VAE_automation.R dataset_baltic_sea_2020_STD.csv "longitude,latitude" "all_spp_cpue_2020_std,bathymetry_2020_std,bottom_temperature_2020_std,surface_net_primary_production_2020_std,bottom_dissolved_oxygen_2020_inv_std,fishing_activity_hours_2020_std" 5 true "./trained_VAE"`
 
-**example (pretraining reuse+projection)**:
+###### **example (pretraining reuse+projection)**:
 
 `RScript VAE_automation.R dataset_baltic_sea_2020_STD.csv "longitude,latitude" "all_spp_cpue_2020_std,bathymetry_2020_std,bottom_temperature_2020_std,surface_net_primary_production_2020_std,bottom_dissolved_oxygen_2020_inv_std,fishing_activity_hours_2020_std" 5 false "./output_VAE" "./trained_VAE/model.bin"`
 
