@@ -22,6 +22,8 @@ input_file <- args[1]
 
 if (!file.exists(input_file)) {
   stop("Input file does not exist")
+}else{
+  cat("Reading input file\n")
 }
 
 ############################

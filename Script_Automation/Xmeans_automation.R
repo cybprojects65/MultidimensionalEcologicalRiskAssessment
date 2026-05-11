@@ -2,6 +2,12 @@ library(tidyverse)
 options(warn = -1)
 
 ############################
+#   REQUIRES THE FOLLOWING JAR:
+#https://github.com/cybprojects65/UnsupervisedMarineRiskAssessment/blob/main/XmeanCluster.jar
+############################
+
+
+############################
 #   READ INPUT ARGUMENTS
 ############################
 
@@ -9,7 +15,7 @@ args <- commandArgs(trailingOnly = TRUE)
 
 if (length(args) < 7) {
   stop("Usage:
-       Rscript xmeans_preprocessing.R 
+       Rscript Xmeans_automation.R 
        <input_csv> 
        <coord_cols> 
        <feature_cols> 
@@ -86,7 +92,7 @@ time <- if (length(args) >= 10 && nchar(trimws(args[10])) > 0) {
 # OUTPUT FOLDER
 ############################
 
-outfolder <- "xmeans_clusters_output"
+outfolder <- "./xmeans_clusters_output"
 if (!dir.exists(outfolder)) {
   dir.create(outfolder, recursive = TRUE)
 }

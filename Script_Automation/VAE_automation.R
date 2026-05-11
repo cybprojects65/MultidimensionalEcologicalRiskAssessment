@@ -32,14 +32,15 @@ args <- commandArgs(trailingOnly = TRUE)
 min_args <- if (length(args) >= 5 && tolower(args[5]) == "true") 6 else 7
 if (length(args) < min_args) {
   stop("Usage:
-  Rscript vae_pipeline.R 
+  Rscript VAE_automation.R 
   <input_file_path>
   <coord_cols>
   <feature_cols>
   <hidden_nodes>
   <training_mode true/false>
   <output_folder>
-  <trained_model_file>  <- solo in modalita test
+  <trained_model_file>  <- only for testing/projection mode \n
+  REQUIRES PRE-COOKED VAE-MODEL JAR FILE DOWNLOADABLE FROM https://github.com/cybprojects65/VariationalAutoencoder 
        ")
 }
 
@@ -110,7 +111,7 @@ if(training_mode_active){
   
   command_test <- paste0("java -cp vae.jar it.cnr.anomaly.JavaVAE -i\"./",input_file_path,"\" -v\"",variable_names,"\" -o\"",output_folder,"\" -r",number_of_reconstruction_samples," -t",training_mode_active," -m\"",trained_model_file,"\"")
   
-  
+  cat("Executing:\n",command_test,"\n")
   VAU_execution_test<-system(command_test, intern = T,
                              ignore.stdout = FALSE, ignore.stderr = FALSE,
                              wait = TRUE, input = NULL, show.output.on.console = TRUE,
