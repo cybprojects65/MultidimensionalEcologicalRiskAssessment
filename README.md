@@ -211,11 +211,11 @@ Examples of workflow executions:
 
 ##### **VAE**
 
-###### **template**: 
+###### **template**:
 
 `Rscript VAE_automation.R  <input_file_path> <coord_cols> <feature_cols> <hidden_nodes>   <training_mode true/false> <output_folder> <trained_model_file> (only for model projections)`
 
-######  **example (training+self projection)**:
+###### **example (training+self projection)**:
 
 `RScript VAE_automation.R dataset_baltic_sea_2020_STD.csv "longitude,latitude" "all_spp_cpue_2020_std,bathymetry_2020_std,bottom_temperature_2020_std,surface_net_primary_production_2020_std,bottom_dissolved_oxygen_2020_inv_std,fishing_activity_hours_2020_std" 5 true "./trained_VAE"`
 

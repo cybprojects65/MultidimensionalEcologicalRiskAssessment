@@ -369,8 +369,24 @@ for (k in k_values) {
 ############################
 
 best_clusterisation <- k_values[which(bics == max(bics))]
+cat("Best absolute clustering: K=", best_clusterisation, "\n")
+#set a threshold to 85% of the best bic
+thr85<-0.85*max(bics)
+clust_idx<-1
+#select the last bic that falls below this threshold
+for (b in bics){
+  if (b>thr85){
+    if (clust_idx>1){
+      clust_idx<-clust_idx-1
+    }
+    break
+  }
+  clust_idx<-clust_idx+1
+}
+#select the best clusterisation accordingly
+best_clusterisation <- k_values[which(bics[1:clust_idx] == max(bics[1:clust_idx]))]
 
-cat("Best clustering: K=", best_clusterisation, "\n")
+cat("Best clustering after model reduction: K=", best_clusterisation, "\n")
 
 
 # SUMMARY 
